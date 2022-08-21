@@ -167,5 +167,7 @@
         float: left;
         margin-left: 72px;
     }
-    .relative{position:relative}
-    .link-each-image{height:43px;left:9px;-o-object-fit:cover;object-fit:cover;position:absolute;width:43px}
+    .relative
+    {position:relative}
+    .link-each-image
+    {height:43px;left:9px;-o-object-fit:cover;object-fit:cover;position:absolute;width:43px}
