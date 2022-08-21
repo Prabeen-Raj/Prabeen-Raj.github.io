@@ -1,146 +1,171 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
 
-body{
-    background-color: black;
-}
+    body{
+        background-color: black;
+    }
 
-.parent{
-    width: 100%;
-    float:left;
-    background-color: black;
-}
-
-
-
-.imageStyle{
-    width: 50%;
-    margin-top: 47px;
-    margin-left: 40%;
-}
+    .parent{
+        width: 100%;
+        float:left;
+        background-color: black;
+    }
 
 
 
-.sub-parent{
-    background-color: black;
-    width:98%;
-}
-
-.homeLogo{
-    text-decoration: none;
-    color: white;
-    background-color: black;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
-}
-
-li{
-    list-style: none;
-}
-
-.topNav{
-    float: left;
-    margin-left: 9%;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif 
-}
+    .imageStyle{
+        width: 50%;
+        margin-top: 47px;
+        margin-left: 40%;
+        border-radius: 2%;
+    }
 
 
 
-.homeLogo{
-    float: left;
-}
+    .sub-parent{
+        background-color: black;
+        width:98%;
+    }
 
-.top-navigation{
-    background-color: black;
-    margin-left: 67%;
-}
+    .homeLogo{
+        text-decoration: none;
+        color: white;
+        background-color: black;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    }
 
-.top-anchor{
-    text-decoration: none;
-    color:  white   ;
-}
+    li{
+        list-style: none;
+    }
+
+    .topNav{
+        float: left;
+        margin-left: 9%;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif 
+    }
 
 
 
-.main-parent{
-    width: 100%;
-    background-color: black;
-    float: left;
-}
+    .homeLogo{
+        float: left;
+    }
 
-.imageDiv{
-    width: 50%;
-    float: left;
-}
+    .top-navigation{
+        background-color: black;
+        margin-left: 67%;
+    }
 
-.para_parent{
-    width: 50%;
-    float: left;
-}
+    .top-anchor{
+        text-decoration: none;
+        color:  white   ;
+    }
 
-.crypto_style{
-    width: 25%;
-    float: left;
-    margin-top: 46px;
-   
-}
 
-.sub_para_parent{
-    width: 75%;
-    float: left;
-}
 
-.headOne{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    padding-top: 34px;
-    padding-left: 56px;
-   
-}
+    .main-parent{
+        width: 100%;
+        background-color: black;
+        float: left;
+    }
 
-.headTwo{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-    color:  white   ;
-    padding-left: 56px;
+    .imageDiv{
+        width: 50%;
+        float: left;
+    }
+
+    .para_parent{
+        width: 50%;
+        float: left;
+    }
+
+    .crypto_style{
+        width: 25%;
+        float: left;
+        margin-top: 46px;
     
-}
+    }
 
-.headThree{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-    color:  white   ;
-    padding-left: 56px;
+    .sub_para_parent{
+        width: 75%;
+        float: left;
+    }
+
+    .headOne{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+        padding-top: 34px;
+        padding-left: 56px;
     
-}
+    }
 
-.para_style{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    margin-top: 43px;
-}
+    .headTwo{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+        color:  white   ;
+        padding-left: 56px;
+        
+    }
 
-.para_div{
-    width: 100%;
-    float: left;
-    padding-left: 56px;
-   
+    .headThree{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+        color:  white   ;
+        padding-left: 56px;
+        
+    }
 
-}
+    .para_style{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+        margin-top: 43px;
+    }
 
-.viedo_embedded_div{
-    width: 100%;
-    float: left;
-
-}
-
-.viedo_style{
-    margin-top: 10px;
-    border: 2px white;
-    width: 50%;
-    float: left;
+    .para_div{
+        width: 100%;
+        float: left;
+        padding-left: 56px;
+        margin-bottom: 45px;
     
 
-}
+    }
 
+    .viedo_embedded_div{
+        width: 100%;
+        float: left;
 
+    }
 
+    .viedo_style{
+        margin-top: 10px;
+        border: 2px white;
+        width: 50%;
+        float: left;
+        
+
+    }
+
+    .viedo_head{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+        margin-top: 43px;
+        margin-bottom: 10px;
+
+    }
+
+    .social_div{
+        
+        margin-left: 110px;
+
+    }
+
+    .social-icon-fill path, .social-icon-fill circle, .social-icon-fill rect {
+        fill: white;
+    }
+
+    .page-social{cursor:pointer;display:block;margin:0 12px 12px}
+    .page-social svg{height:28px;width:28px;
+        float: left;
+        margin-left: 72px;
+    }
+    .relative{position:relative}
+    .link-each-image{height:43px;left:9px;-o-object-fit:cover;object-fit:cover;position:absolute;width:43px}
