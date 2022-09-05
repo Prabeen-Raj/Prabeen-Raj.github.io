@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <h3>comment box</h3>
+      <form id="myForm">
+    
+         <textarea id ="userComment" rows="4" cols="50" name="comment" placeholder="Enter comment here..."> </textarea>
+         <br><br>
+         <input type="button" onclick="myFunction()" value="Submit">
+      </form>
+      <p id="data"></p>
+      <script>
+         function myFunction(){
+
+          let comment = document.getElementById("userComment").value
+         
+         data = "User comment : "+comment
+         
+         document.getElementById("data").innerHTML = data  // display data to paragraph
+         }
+      </script>
+   </body>
+</html>
