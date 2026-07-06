@@ -1,1 +1,558 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><script defer="defer" src="/static/js/main.65b3c163.js"></script><link href="/static/css/main.9ba95009.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prabeen Raj S — ServiceNow Solution Architect</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --black:#0a0a0a;--white:#ffffff;--off:#f5f5f5;--gray:#6b6b6b;
+    --line:#e0e0e0;--dark-line:#2a2a2a;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--white);color:var(--black);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;overflow-x:hidden;line-height:1.6}
+
+  /* ═══ NAV ═══ */
+  nav{position:fixed;top:0;width:100%;z-index:100;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;background:#ffffffee;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .logo{font-weight:800;font-size:1.05rem;letter-spacing:3px}
+  .logo span{display:inline-block;width:8px;height:8px;background:var(--black);border-radius:50%;margin-left:4px;animation:blink 2s infinite}
+  .nav-links{display:flex;gap:2.2rem}
+  .nav-links a{color:var(--gray);text-decoration:none;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;transition:.3s;cursor:pointer;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--black);transition:.3s}
+  .nav-links a:hover{color:var(--black)}
+  .nav-links a:hover::after{width:100%}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+  @media(max-width:700px){.nav-links{display:none}nav{padding:1rem 1.5rem}}
+
+  /* ═══ HERO ═══ */
+  #hero{min-height:100vh;display:flex;align-items:center;padding:8rem 3rem 4rem;position:relative;max-width:1200px;margin:0 auto}
+  .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;width:100%}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-bottom:1.5rem;animation:fadeUp .8s ease .1s both}
+  .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--black);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(10,10,10,.4)}70%{box-shadow:0 0 0 10px rgba(10,10,10,0)}100%{box-shadow:0 0 0 0 rgba(10,10,10,0)}}
+  h1{font-size:clamp(2.6rem,5.5vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1.2rem;animation:fadeUp .8s ease .25s both}
+  .hero-role{font-size:1.05rem;color:var(--gray);margin-bottom:2rem;animation:fadeUp .8s ease .4s both}
+  .hero-role strong{color:var(--black);font-weight:700}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .8s ease .55s both}
+  .btn{padding:.8rem 2rem;font-size:.82rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:.3s;border-radius:2px}
+  .btn-dark{background:var(--black);color:var(--white);border:1px solid var(--black)}
+  .btn-dark:hover{background:transparent;color:var(--black)}
+  .btn-outline{background:transparent;color:var(--black);border:1px solid var(--black)}
+  .btn-outline:hover{background:var(--black);color:var(--white)}
+  .hero-stats{display:flex;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;animation:fadeUp .8s ease .7s both}
+  .stat-n{font-size:1.9rem;font-weight:800;letter-spacing:-1px}
+  .stat-l{font-size:.68rem;color:var(--gray);letter-spacing:2px;text-transform:uppercase}
+
+  /* HERO GRAPHIC — ServiceNow integration hub (pure CSS/SVG) */
+  .hero-visual{position:relative;animation:fadeUp .8s ease .5s both}
+  .hub-svg{width:100%;height:auto}
+  .orbit-ring{transform-origin:center;animation:spin 40s linear infinite}
+  .orbit-ring2{transform-origin:center;animation:spinRev 55s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes spinRev{to{transform:rotate(-360deg)}}
+  .data-flow{stroke-dasharray:4 8;animation:dashMove 1.5s linear infinite}
+  @keyframes dashMove{to{stroke-dashoffset:-24}}
+  .node-pulse{animation:nodePulse 2.5s ease-in-out infinite}
+  @keyframes nodePulse{0%,100%{opacity:.6}50%{opacity:1}}
+
+  /* ═══ SECTIONS ═══ */
+  section{padding:6rem 3rem;max-width:1200px;margin:0 auto}
+  @media(max-width:700px){section{padding:4rem 1.5rem}}
+  .sec-head{margin-bottom:3.5rem}
+  .sec-num{font-size:.72rem;letter-spacing:4px;color:var(--gray);text-transform:uppercase;display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+  .sec-num::after{content:'';width:60px;height:1px;background:var(--black)}
+  .sec-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;letter-spacing:-1.5px;line-height:1.1}
+
+  /* ═══ EXPERTISE ═══ */
+  .exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0;border:1px solid var(--line)}
+  .exp-cell{padding:2.2rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.35s;position:relative;overflow:hidden;cursor:default}
+  .exp-cell::before{content:'';position:absolute;inset:0;background:var(--black);transform:translateY(101%);transition:.4s cubic-bezier(.7,0,.3,1);z-index:0}
+  .exp-cell:hover::before{transform:translateY(0)}
+  .exp-cell>*{position:relative;z-index:1;transition:color .35s}
+  .exp-cell:hover h3,.exp-cell:hover .exp-idx{color:var(--white)}
+  .exp-cell:hover p{color:#b9b9b9}
+  .exp-cell:hover .exp-tag{background:var(--white);color:var(--black);border-color:var(--white)}
+  .exp-idx{font-size:.7rem;letter-spacing:3px;color:var(--gray);margin-bottom:1rem;font-weight:600}
+  .exp-cell h3{font-size:1.12rem;font-weight:700;margin-bottom:.7rem;letter-spacing:-.3px}
+  .exp-cell p{font-size:.84rem;color:var(--gray);line-height:1.65;margin-bottom:1.1rem}
+  .exp-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+  .exp-tag{font-size:.66rem;font-weight:600;letter-spacing:.8px;padding:.28rem .7rem;border:1px solid var(--line);border-radius:2px;transition:.35s}
+
+  /* ═══ 3D TIMELINE ═══ */
+  #timeline-section{background:var(--black);color:var(--white);max-width:none;position:relative;overflow:hidden}
+  #timeline-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+  #tl-canvas{position:absolute;inset:0;z-index:1;opacity:.55}
+  #timeline-section .sec-num{color:#888}
+  #timeline-section .sec-num::after{background:var(--white)}
+  .tl-track{position:relative;padding-left:2.5rem}
+  .tl-track::before{content:'';position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--white),#ffffff30)}
+  .tl-node{position:relative;margin-bottom:3rem;opacity:0;transform:translateX(-30px);transition:opacity .7s ease,transform .7s ease}
+  .tl-node.visible{opacity:1;transform:none}
+  .tl-marker{position:absolute;left:-2.5rem;top:6px;width:15px;height:15px;border:2px solid var(--white);border-radius:50%;background:var(--black);transition:.3s}
+  .tl-node:hover .tl-marker{background:var(--white);box-shadow:0 0 16px #ffffff70}
+  .tl-date{font-size:.68rem;letter-spacing:3px;color:#888;text-transform:uppercase;margin-bottom:.4rem}
+  .tl-role{font-size:1.2rem;font-weight:700;letter-spacing:-.3px}
+  .tl-org{font-size:.85rem;color:#aaa;margin:.3rem 0 .8rem}
+  .tl-focus{display:flex;flex-wrap:wrap;gap:.4rem}
+  .tl-chip{font-size:.66rem;font-weight:600;letter-spacing:.8px;padding:.3rem .75rem;border:1px solid #ffffff30;border-radius:2px;color:#ddd;transition:.3s}
+  .tl-node:hover .tl-chip{border-color:#ffffff70}
+
+  /* ═══ EDUCATION ═══ */
+  .edu-card{border:1px solid var(--line);padding:2.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center;transition:.3s;position:relative;overflow:hidden}
+  .edu-card:hover{border-color:var(--black)}
+  @media(max-width:700px){.edu-card{grid-template-columns:1fr;gap:1rem}}
+  .edu-icon{width:64px;height:64px;border:1px solid var(--black);border-radius:2px;display:flex;align-items:center;justify-content:center}
+  .edu-icon svg{width:34px;height:34px}
+  .edu-degree{font-size:1.15rem;font-weight:700;letter-spacing:-.3px}
+  .edu-school{font-size:.88rem;color:var(--gray);margin-top:.3rem}
+  .edu-date{font-size:.72rem;letter-spacing:2px;color:var(--gray);text-transform:uppercase;white-space:nowrap}
+
+  /* ═══ CERTIFICATIONS ═══ */
+  .cert-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;border:1px solid var(--line)}
+  .cert-item{padding:1.8rem;border-right:1px solid var(--line);display:flex;gap:1rem;align-items:flex-start;transition:.3s}
+  .cert-item:hover{background:var(--off)}
+  .cert-badge{width:38px;height:38px;flex-shrink:0;border:1px solid var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800}
+  .cert-name{font-size:.85rem;font-weight:700;line-height:1.4}
+  .cert-org{font-size:.7rem;color:var(--gray);letter-spacing:1px;text-transform:uppercase;margin-top:.3rem}
+
+  /* ═══ INTEGRATION MARQUEE ═══ */
+  .marquee-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.4rem 0;overflow:hidden;background:var(--off)}
+  .marquee{display:flex;gap:3rem;white-space:nowrap;animation:scroll 35s linear infinite;width:max-content}
+  .marquee span{font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:3rem}
+  .marquee span::after{content:'◆';font-size:.5rem;color:var(--black)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ═══ CONTACT ═══ */
+  #contact{text-align:center;padding-bottom:8rem}
+  .contact-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-2px;line-height:1.1;margin-bottom:1rem}
+  .contact-sub{color:var(--gray);margin-bottom:2.5rem;font-size:.95rem}
+  .contact-grid{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .contact-pill{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.6rem;border:1px solid var(--black);border-radius:2px;color:var(--black);text-decoration:none;font-size:.82rem;font-weight:600;transition:.3s}
+  .contact-pill:hover{background:var(--black);color:var(--white)}
+  .contact-pill svg{width:16px;height:16px}
+
+  footer{border-top:1px solid var(--line);padding:1.5rem 3rem;display:flex;justify-content:space-between;font-size:.7rem;color:var(--gray);letter-spacing:1px}
+  @media(max-width:700px){footer{flex-direction:column;gap:.5rem;text-align:center}}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  .reveal{opacity:0;transform:translateY(35px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="logo">PRABEEN RAJ<span></span></div>
+  <div class="nav-links">
+    <a onclick="goTo('expertise')">Expertise</a>
+    <a onclick="goTo('timeline-section')">Timeline</a>
+    <a onclick="goTo('education')">Education</a>
+    <a onclick="goTo('contact')">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div id="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow"><span class="pulse-dot"></span>ServiceNow Solution Architect</div>
+      <h1>Architecting<br>the connected<br>enterprise.</h1>
+      <p class="hero-role"><strong>Prabeen Raj S</strong> — Integration Specialist with <strong>4.6+ years</strong> designing scalable ServiceNow platforms, AI-powered workflows, and enterprise integrations.</p>
+      <div class="hero-btns">
+        <a class="btn btn-dark" onclick="goTo('contact')">Get in touch</a>
+        <a class="btn btn-outline" onclick="goTo('expertise')">View expertise</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-n">4.6+</div><div class="stat-l">Years</div></div>
+        <div><div class="stat-n">20+</div><div class="stat-l">Integrations</div></div>
+        <div><div class="stat-n">4</div><div class="stat-l">Certifications</div></div>
+        <div><div class="stat-n">100K</div><div class="stat-l">Records migrated</div></div>
+      </div>
+    </div>
+
+    <!-- ServiceNow Integration Hub graphic (IoT node style) -->
+    <div class="hero-visual">
+      <svg class="hub-svg" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ServiceNow integration hub diagram">
+        <!-- Orbit rings -->
+        <g class="orbit-ring">
+          <circle cx="220" cy="220" r="170" fill="none" stroke="#0a0a0a" stroke-width="1" stroke-dasharray="2 6" opacity=".35"/>
+        </g>
+        <g class="orbit-ring2">
+          <circle cx="220" cy="220" r="125" fill="none" stroke="#0a0a0a" stroke-width="1" stroke-dasharray="1 5" opacity=".25"/>
+        </g>
+        <!-- Data flow lines -->
+        <line class="data-flow" x1="220" y1="220" x2="220" y2="50"  stroke="#0a0a0a" stroke-width="1"/>
+        <line class="data-flow" x1="220" y1="220" x2="367" y2="135" stroke="#0a0a0a" stroke-width="1"/>
+        <line class="data-flow" x1="220" y1="220" x2="367" y2="305" stroke="#0a0a0a" stroke-width="1"/>
+        <line class="data-flow" x1="220" y1="220" x2="220" y2="390" stroke="#0a0a0a" stroke-width="1"/>
+        <line class="data-flow" x1="220" y1="220" x2="73"  y2="305" stroke="#0a0a0a" stroke-width="1"/>
+        <line class="data-flow" x1="220" y1="220" x2="73"  y2="135" stroke="#0a0a0a" stroke-width="1"/>
+        <!-- Center: ServiceNow hub -->
+        <circle cx="220" cy="220" r="52" fill="#0a0a0a"/>
+        <circle cx="220" cy="220" r="60" fill="none" stroke="#0a0a0a" stroke-width="1" opacity=".3" class="node-pulse"/>
+        <text x="220" y="214" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700" font-family="Segoe UI,sans-serif">Service</text>
+        <text x="220" y="232" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700" font-family="Segoe UI,sans-serif">Now</text>
+        <!-- Satellite nodes -->
+        <g class="node-pulse">
+          <circle cx="220" cy="50" r="26" fill="#ffffff" stroke="#0a0a0a" stroke-width="1.5"/>
+          <text x="220" y="55" text-anchor="middle" fill="#0a0a0a" font-size="9.5" font-weight="700" font-family="Segoe UI,sans-serif">REST API</text>
+        </g>
+        <g class="node-pulse" style="animation-delay:.4s">
+          <circle cx="367" cy="135" r="26" fill="#ffffff" stroke="#0a0a0a" stroke-width="1.5"/>
+          <text x="367" y="140" text-anchor="middle" fill="#0a0a0a" font-size="9.5" font-weight="700" font-family="Segoe UI,sans-serif">AI / MCP</text>
+        </g>
+        <g class="node-pulse" style="animation-delay:.8s">
+          <circle cx="367" cy="305" r="26" fill="#ffffff" stroke="#0a0a0a" stroke-width="1.5"/>
+          <text x="367" y="310" text-anchor="middle" fill="#0a0a0a" font-size="9.5" font-weight="700" font-family="Segoe UI,sans-serif">Cloud</text>
+        </g>
+        <g class="node-pulse" style="animation-delay:1.2s">
+          <circle cx="220" cy="390" r="26" fill="#ffffff" stroke="#0a0a0a" stroke-width="1.5"/>
+          <text x="220" y="395" text-anchor="middle" fill="#0a0a0a" font-size="9.5" font-weight="700" font-family="Segoe UI,sans-serif">Portal</text>
+        </g>
+        <g class="node-pulse" style="animation-delay:1.6s">
+          <circle cx="73" cy="305" r="26" fill="#ffffff" stroke="#0a0a0a" stroke-width="1.5"/>
+          <text x="73" y="310" text-anchor="middle" fill="#0a0a0a" font-size="9.5" font-weight="700" font-family="Segoe UI,sans-serif">CRM</text>
+        </g>
+        <g class="node-pulse" style="animation-delay:2s">
+          <circle cx="73" cy="135" r="26" fill="#ffffff" stroke="#0a0a0a" stroke-width="1.5"/>
+          <text x="73" y="140" text-anchor="middle" fill="#0a0a0a" font-size="9.5" font-weight="700" font-family="Segoe UI,sans-serif">ITSM</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ INTEGRATION MARQUEE ═══ -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee">
+    <span>Salesforce</span><span>Jira</span><span>Zendesk</span><span>Azure AD</span><span>OpenAI</span><span>SailPoint</span><span>Azure DevOps</span><span>PagerDuty</span><span>Slack</span><span>Teams</span><span>DocuSign</span><span>Twilio</span><span>AWS Lambda</span><span>Cloudflare</span><span>Zoom</span><span>FreshService</span>
+    <span>Salesforce</span><span>Jira</span><span>Zendesk</span><span>Azure AD</span><span>OpenAI</span><span>SailPoint</span><span>Azure DevOps</span><span>PagerDuty</span><span>Slack</span><span>Teams</span><span>DocuSign</span><span>Twilio</span><span>AWS Lambda</span><span>Cloudflare</span><span>Zoom</span><span>FreshService</span>
+  </div>
+</div>
+
+<!-- ═══ EXPERTISE ═══ -->
+<section id="expertise">
+  <div class="sec-head reveal">
+    <div class="sec-num">01 — Area of expertise</div>
+    <div class="sec-title">What I do best.</div>
+  </div>
+  <div class="exp-grid reveal">
+    <div class="exp-cell">
+      <div class="exp-idx">/ 01</div>
+      <h3>Platform Architecture</h3>
+      <p>End-to-end solution design across ITSM, CSM, Service Portal, Employee Center, and the Now Platform.</p>
+      <div class="exp-tags"><span class="exp-tag">ITSM</span><span class="exp-tag">CSM</span><span class="exp-tag">Now Platform</span><span class="exp-tag">Workflow Data Fabric</span></div>
+    </div>
+    <div class="exp-cell">
+      <div class="exp-idx">/ 02</div>
+      <h3>Enterprise Integration</h3>
+      <p>Bi-directional and unidirectional integrations across 20+ platforms using REST, IntegrationHub, and custom architectures.</p>
+      <div class="exp-tags"><span class="exp-tag">REST API</span><span class="exp-tag">IntegrationHub</span><span class="exp-tag">MID Server</span><span class="exp-tag">Webhooks</span></div>
+    </div>
+    <div class="exp-cell">
+      <div class="exp-idx">/ 03</div>
+      <h3>AI &amp; Automation</h3>
+      <p>OpenAI API integration, agentic workflows with Now Assist, and Model Context Protocol server architecture.</p>
+      <div class="exp-tags"><span class="exp-tag">OpenAI</span><span class="exp-tag">Now Assist</span><span class="exp-tag">MCP</span><span class="exp-tag">Predictive Intelligence</span></div>
+    </div>
+    <div class="exp-cell">
+      <div class="exp-idx">/ 04</div>
+      <h3>Portal &amp; UI Engineering</h3>
+      <p>Custom widgets, UI Builder experiences, and Next Experience components built with modern frontend stacks.</p>
+      <div class="exp-tags"><span class="exp-tag">UI Builder</span><span class="exp-tag">Service Portal</span><span class="exp-tag">Employee Center</span><span class="exp-tag">React</span></div>
+    </div>
+    <div class="exp-cell">
+      <div class="exp-idx">/ 05</div>
+      <h3>Data Migration</h3>
+      <p>Large-scale migrations with full integrity validation using Data Sources, Import Sets, and Transform Maps.</p>
+      <div class="exp-tags"><span class="exp-tag">Import Set</span><span class="exp-tag">Transform Map</span><span class="exp-tag">Data Source</span><span class="exp-tag">Incremental Migration</span></div>
+    </div>
+    <div class="exp-cell">
+      <div class="exp-idx">/ 06</div>
+      <h3>Architecture &amp; Delivery</h3>
+      <p>Pre-sales solutioning, requirements gathering, technical leadership, and structured knowledge transfer.</p>
+      <div class="exp-tags"><span class="exp-tag">Pre-Sales</span><span class="exp-tag">Tech Leadership</span><span class="exp-tag">KT &amp; Training</span><span class="exp-tag">Update Sets</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3D TIMELINE ═══ -->
+<section id="timeline-section">
+  <canvas id="tl-canvas"></canvas>
+  <div id="timeline-inner">
+    <div class="sec-head reveal">
+      <div class="sec-num">02 — Career timeline</div>
+      <div class="sec-title" style="color:#fff">The journey so far.</div>
+    </div>
+    <div class="tl-track">
+      <div class="tl-node">
+        <div class="tl-marker"></div>
+        <div class="tl-date">May 2024 — Present · 2 yrs 3 mos</div>
+        <div class="tl-role">ServiceNow Solution Consultant</div>
+        <div class="tl-org">zeb · Chennai, India · On-site</div>
+        <div class="tl-desc" style="font-size:.82rem;color:#999;line-height:1.7;margin:.6rem 0 .8rem;max-width:640px">Solution design and implementation across ITSM, Integration, Portal, and CAD. Architecting bidirectional and unidirectional integrations using Workflow Data Fabric, IntegrationHub, REST Messages, and Scripted REST APIs — with OAuth 2.0 authentication, payload mapping, error handling, and retry strategies. Built scalable migration pipelines from ManageEngine, FreshService, Zendesk, Salesforce, ConnectWise, and Jira to ServiceNow.</div>
+        <div class="tl-focus">
+          <span class="tl-chip">Solution Architecture</span><span class="tl-chip">Workflow Data Fabric</span><span class="tl-chip">IntegrationHub</span><span class="tl-chip">OAuth 2.0</span><span class="tl-chip">Migration Pipelines</span><span class="tl-chip">Governance</span>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-marker"></div>
+        <div class="tl-date">Sep 2023 — Apr 2024 · 8 mos</div>
+        <div class="tl-role">ServiceNow Technical Consultant</div>
+        <div class="tl-org">AVASOFT · Chennai, India · On-site</div>
+        <div class="tl-desc" style="font-size:.82rem;color:#999;line-height:1.7;margin:.6rem 0 .8rem;max-width:640px">Delivered enterprise implementations across CSM, Integration, and Data Migration. Led stakeholder workshops and discovery sessions; configured CSM Workspace and Customer Portal; architected end-to-end integrations spanning enterprise ITSM, CRM, and asset management tools.</div>
+        <div class="tl-focus">
+          <span class="tl-chip">CSM Workspace</span><span class="tl-chip">Enterprise Integration</span><span class="tl-chip">Data Migration</span><span class="tl-chip">Stakeholder Workshops</span>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-marker"></div>
+        <div class="tl-date">Jul 2022 — Aug 2023 · 1 yr 2 mos</div>
+        <div class="tl-role">ServiceNow Developer</div>
+        <div class="tl-org">AVASOFT · Chennai, India</div>
+        <div class="tl-desc" style="font-size:.82rem;color:#999;line-height:1.7;margin:.6rem 0 .8rem;max-width:640px">ITSM development with a focus on Employee Center Portal — designing intuitive interfaces and custom widgets to empower self-service. Streamlined incident, problem, change, and asset workflows; connected ServiceNow with Teams, Azure, and AWS to eliminate manual processes.</div>
+        <div class="tl-focus">
+          <span class="tl-chip">Employee Center</span><span class="tl-chip">Custom Widgets</span><span class="tl-chip">ITSM Workflows</span><span class="tl-chip">Teams / Azure / AWS</span>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-marker"></div>
+        <div class="tl-date">Dec 2021 — Jun 2022 · 7 mos</div>
+        <div class="tl-role">Microsoft 365 Developer</div>
+        <div class="tl-org">AVASOFT · Chennai, India</div>
+        <div class="tl-desc" style="font-size:.82rem;color:#999;line-height:1.7;margin:.6rem 0 .8rem;max-width:640px">Full-stack development across the Microsoft ecosystem — React, Node.js, SharePoint Framework, Power Automate, REST API, and CSOM. Built custom lists, workflows, and external system integrations with strong UI/UX foundations.</div>
+        <div class="tl-focus">
+          <span class="tl-chip">React</span><span class="tl-chip">Node.js</span><span class="tl-chip">SharePoint Framework</span><span class="tl-chip">Power Automate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ═══ -->
+<section id="education">
+  <div class="sec-head reveal">
+    <div class="sec-num">03 — Education</div>
+    <div class="sec-title">Where it began.</div>
+  </div>
+  <div class="edu-card reveal">
+    <div class="edu-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 10L12 5 2 10l10 5 10-5z"/>
+        <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/>
+        <path d="M22 10v6"/>
+      </svg>
+    </div>
+    <div>
+      <div class="edu-degree">Bachelor of Engineering — Electronics &amp; Communications Engineering</div>
+      <div class="edu-school">Panimalar Institute of Technology · Chennai</div>
+    </div>
+    <div class="edu-date">Jan 2015 — Feb 2019</div>
+  </div>
+</section>
+
+<!-- ═══ CERTIFICATIONS ═══ -->
+<section id="certs" style="padding-top:0">
+  <div class="sec-head reveal">
+    <div class="sec-num">04 — Credentials</div>
+    <div class="sec-title">Certified expertise.</div>
+  </div>
+  <div class="cert-row reveal">
+    <div class="cert-item"><div class="cert-badge">SN</div><div><div class="cert-name">Certified System Administrator (CSA)</div><div class="cert-org">ServiceNow</div></div></div>
+    <div class="cert-item"><div class="cert-badge">SN</div><div><div class="cert-name">Certified Implementation Specialist — ITSM</div><div class="cert-org">ServiceNow</div></div></div>
+    <div class="cert-item"><div class="cert-badge">µC</div><div><div class="cert-name">Micro-Certification — Integration Hub</div><div class="cert-org">ServiceNow</div></div></div>
+    <div class="cert-item" style="border-right:none"><div class="cert-badge">µC</div><div><div class="cert-name">Micro-Certification — Flow Designer</div><div class="cert-org">ServiceNow</div></div></div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="reveal">
+    <div class="sec-num" style="justify-content:center">05 — Contact</div>
+    <div class="contact-title">Let's build the<br>next platform together.</div>
+    <p class="contact-sub">Open to Solution Architect and Technical Lead opportunities.</p>
+    <div class="contact-grid">
+      <a class="contact-pill" href="mailto:prabeenraj85@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+        prabeenraj85@gmail.com
+      </a>
+      <a class="contact-pill" href="https://linkedin.com/in/prabeen-raj" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/prabeen-raj
+      </a>
+      <a class="contact-pill" href="tel:+917092074802">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 70920 74802
+      </a>
+      <a class="contact-pill" href="https://www.youtube.com/@your-channel" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-1.92 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+        YouTube Channel
+      </a>
+      <span class="contact-pill" style="cursor:default">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Chennai, India
+      </span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 PRABEEN RAJ S</span>
+  <span>SERVICENOW SOLUTION ARCHITECT · INTEGRATION SPECIALIST</span>
+</footer>
+
+<script>
+function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+
+/* ═══ SCROLL REVEAL ═══ */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:.12});
+document.querySelectorAll('.reveal, .tl-node').forEach(el=>io.observe(el));
+
+/* ═══ 3D TIMELINE BACKGROUND — IoT network (Three.js) ═══ */
+(function(){
+  const canvas=document.getElementById('tl-canvas');
+  const section=document.getElementById('timeline-section');
+
+  function size(){return{w:section.offsetWidth,h:section.offsetHeight}}
+  let{w,h}=size();
+
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setSize(w,h);
+
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(60,w/h,0.1,1000);
+  camera.position.z=42;
+
+  /* IoT node network — points connected by proximity lines */
+  const NODE_COUNT=90;
+  const nodes=[];
+  const nodeGeo=new THREE.SphereGeometry(.22,8,8);
+  const nodeMat=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.85});
+
+  const group=new THREE.Group();
+  scene.add(group);
+
+  for(let i=0;i<NODE_COUNT;i++){
+    const mesh=new THREE.Mesh(nodeGeo,nodeMat);
+    const x=(Math.random()-.5)*90;
+    const y=(Math.random()-.5)*55;
+    const z=(Math.random()-.5)*45;
+    mesh.position.set(x,y,z);
+    mesh.userData={
+      vx:(Math.random()-.5)*.02,
+      vy:(Math.random()-.5)*.02,
+      vz:(Math.random()-.5)*.015,
+      phase:Math.random()*Math.PI*2
+    };
+    group.add(mesh);
+    nodes.push(mesh);
+  }
+
+  /* Connection lines (rebuilt each frame for IoT mesh feel) */
+  const MAX_DIST=14;
+  const lineMat=new THREE.LineBasicMaterial({color:0xffffff,transparent:true,opacity:.14});
+  let lineMesh=null;
+
+  function rebuildLines(){
+    if(lineMesh){group.remove(lineMesh);lineMesh.geometry.dispose()}
+    const positions=[];
+    for(let i=0;i<NODE_COUNT;i++){
+      for(let j=i+1;j<NODE_COUNT;j++){
+        const a=nodes[i].position,b=nodes[j].position;
+        const d=a.distanceTo(b);
+        if(d<MAX_DIST){
+          positions.push(a.x,a.y,a.z,b.x,b.y,b.z);
+        }
+      }
+    }
+    const g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));
+    lineMesh=new THREE.LineSegments(g,lineMat);
+    group.add(lineMesh);
+  }
+
+  /* Data pulse particles traveling on random paths */
+  const pulseGeo=new THREE.SphereGeometry(.35,8,8);
+  const pulseMat=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.9});
+  const pulses=[];
+  for(let i=0;i<8;i++){
+    const p=new THREE.Mesh(pulseGeo,pulseMat.clone());
+    p.userData={from:Math.floor(Math.random()*NODE_COUNT),to:Math.floor(Math.random()*NODE_COUNT),t:Math.random()};
+    group.add(p);
+    pulses.push(p);
+  }
+
+  let mouseX=0,mouseY=0;
+  section.addEventListener('mousemove',e=>{
+    const r=section.getBoundingClientRect();
+    mouseX=((e.clientX-r.left)/r.width-.5);
+    mouseY=((e.clientY-r.top)/r.height-.5);
+  });
+
+  let frame=0;
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animate(){
+    requestAnimationFrame(animate);
+    if(reduceMotion){renderer.render(scene,camera);return}
+    frame++;
+
+    /* Drift nodes */
+    const time=frame*.01;
+    nodes.forEach(n=>{
+      n.position.x+=n.userData.vx;
+      n.position.y+=n.userData.vy+Math.sin(time+n.userData.phase)*.004;
+      n.position.z+=n.userData.vz;
+      if(Math.abs(n.position.x)>46)n.userData.vx*=-1;
+      if(Math.abs(n.position.y)>29)n.userData.vy*=-1;
+      if(Math.abs(n.position.z)>24)n.userData.vz*=-1;
+    });
+
+    /* Rebuild mesh lines every few frames for performance */
+    if(frame%4===0)rebuildLines();
+
+    /* Move data pulses along node-to-node paths */
+    pulses.forEach(p=>{
+      p.userData.t+=.012;
+      if(p.userData.t>=1){
+        p.userData.from=p.userData.to;
+        p.userData.to=Math.floor(Math.random()*NODE_COUNT);
+        p.userData.t=0;
+      }
+      const a=nodes[p.userData.from].position,b=nodes[p.userData.to].position;
+      p.position.lerpVectors(a,b,p.userData.t);
+      p.material.opacity=.9*Math.sin(p.userData.t*Math.PI);
+    });
+
+    /* Slow rotation + mouse parallax */
+    group.rotation.y+=.0012;
+    camera.position.x+=(mouseX*6-camera.position.x)*.04;
+    camera.position.y+=(-mouseY*4-camera.position.y)*.04;
+    camera.lookAt(0,0,0);
+
+    renderer.render(scene,camera);
+  }
+  rebuildLines();
+  animate();
+
+  window.addEventListener('resize',()=>{
+    const s=size();
+    camera.aspect=s.w/s.h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(s.w,s.h);
+  });
+})();
+</script>
+</body>
+</html>
